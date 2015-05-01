@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#word {
+			color: white;
+		    height: 114px;
+		    letter-spacing: -1px;
+		    text-align: center;
+		    width: 100%;
+		    perspective-origin: 385px 57px;
+		    transform-origin: 385px 57px;
+		    border: 0px none rgb(255, 255, 255);
+		    font: normal normal 600 normal 48px/57.5999984741211px 'Open Sans', Arial, Helvetica, sans-serif;
+		    outline: rgb(255, 255, 255) none 0px;
+		}/*#H1_1*/
+		body {
+		    background: #f96d3c;
+		}
+	</style>
+</head>
+<body>
+<div id="word">HBHBHBHBBJBBBJBHBBJBBJBBJBBBJJ</div>
+<button id="next-word-but">next</button>
+<div id="syl-word"></div>
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+<script type="text/javascript">
+$('#word').html('<span>' + $('#word').text().split('').join('</span><span>') + '</span>').find('span').click(function() {
+    if ($(this).next().text() == '-') {
+        $(this).next().remove();
+    } else {
+        $(this).after('<span>-</span>');
+    }
+});
+</script>
+
+<script type="text/javascript">
+	$('#next-word-but').click(function merge(){
+		var letters = $('#word').children();
+		var syllabified_word = "";
+		for(i=0;i<letters.length;i++)
+		{
+			syllabified_word = syllabified_word + letters[i].innerText;
+		}
+		console.log(syllabified_word);
+	});
+</script>
+</body>
+</html>
