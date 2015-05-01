@@ -3,7 +3,6 @@ class CreateWords < ActiveRecord::Migration
 	create_table :words do |t|
 		t.string :normal
 		t.string :syllabified
-		t.timestamps
 	end
   end
 

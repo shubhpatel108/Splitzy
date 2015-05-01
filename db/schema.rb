@@ -17,10 +17,8 @@ ActiveRecord::Schema.define(version: 20150501201751) do
   enable_extension "plpgsql"
 
   create_table "words", force: :cascade do |t|
-    t.string   "normal"
-    t.string   "syllabified"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "normal"
+    t.string "syllabified"
   end
 
 end
