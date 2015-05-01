@@ -21,7 +21,10 @@
 	</style>
 </head>
 <body>
-<div id="word">HBHBHBHBBJBBBJBHBBJBBJBBJBBBJJ</div>
+
+<div id="word_wrapper">
+	<%= erb :"word.html" %>
+</div>
 <button id="next-word-but">next</button>
 <div id="syl-word"></div>
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
@@ -44,7 +47,11 @@ $('#word').html('<span>' + $('#word').text().split('').join('</span><span>') + '
 		{
 			syllabified_word = syllabified_word + letters[i].innerText;
 		}
-		console.log(syllabified_word);
+		var word_id = $('#word_id').text();
+		console.log(word_id);
+		$.post("syllabified", {id: word_id, syllabified_word: syllabified_word},
+          function(result) { $("#word_wrapper").html(result);
+        });
 	});
 </script>
 </body>
